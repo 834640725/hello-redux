@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import * as types from './actions';
 import { bindActionCreators } from 'redux';
 
-function testable(target) {
-  target.isTestable = true;
-}
-
 const mapStateToProps = (state) => {
   return {
     counter: state.counter
@@ -18,7 +14,6 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(types, dispatch);
 };
 
-@testable
 @connect(mapStateToProps, mapDispatchToProps)
 class App extends Component {
   static propTypes = {
@@ -40,7 +35,5 @@ class App extends Component {
     );
   }
 }
-
-console.log(App.isTestable);
 
 export default App;

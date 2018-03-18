@@ -4,10 +4,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 
-const store = createStore(rootReducer, {}, applyMiddleware(logger));
+const store = createStore(rootReducer, {}, applyMiddleware(logger, thunk));
 
 // store.subscribe(() => console.log("State updated!", store.getState()));
 

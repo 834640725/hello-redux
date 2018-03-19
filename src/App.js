@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as types from './actions';
 import { bindActionCreators } from 'redux';
+import User from './components/User';
 
 const mapStateToProps = (state) => {
   return {
@@ -31,6 +32,7 @@ class App extends Component {
           <button onClick={ () => increment() } className="btn btn-primary mr-2">Increase</button>
           <button onClick={ () => decrement() } className="btn btn-danger my-2">Decrease</button>
         </p>
+        <User />
       </div>
     );
   }

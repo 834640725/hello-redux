@@ -12,6 +12,14 @@ const configureStore = (preloadedState) => {
     composeWithDevTools(applyMiddleware(logger, thunk, promise()))
   );
 
+  if (process.env.NODE_ENV !== "production") {
+    if (module.hot) {
+      module.hot.accept('../reducers', () => {
+        store.replaceReducer(rootReducer)
+      })
+    }
+  }
+
   return store;
 };
 
